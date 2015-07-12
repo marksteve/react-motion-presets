@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "browserify --extension .jsx -t babelify -x react -x react-motion index.jsx > index.js",
-    "build-demo": "browserify --extension .jsx -t babelify demo/demo.jsx | uglifyjs -cm > demo/demo.min.js"
+    "build-demo": "browserify --extension .jsx -t babelify demo/demo.jsx | uglifyjs -cm > demo/demo.min.js",
+    "update-demo": "git subtree push --prefix=demo origin gh-pages"
   },
   "author": {
     "name": "Mark Steve Samson",
