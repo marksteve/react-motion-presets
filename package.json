@@ -1,6 +1,6 @@
 {
   "name": "react-motion-presets",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Preset animations using chenglou/react-motion",
   "main": "index.js",
   "scripts": {
