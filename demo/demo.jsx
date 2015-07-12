@@ -1,5 +1,5 @@
 import React from 'react'
-import {Toggle} from '../index.jsx'
+import {Toggle} from '../index'
 
 var Demo = React.createClass({
   getInitialState() {
