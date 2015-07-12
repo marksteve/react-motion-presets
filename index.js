@@ -15,40 +15,41 @@ var _reactMotion = require('react-motion');
 
 var _reactMotion2 = _interopRequireDefault(_reactMotion);
 
-var _objectAssign = require('object-assign');
-
-var _objectAssign2 = _interopRequireDefault(_objectAssign);
-
 var Toggle = {
   Grow: _react2['default'].createClass({
     displayName: 'Grow',
 
     render: function render() {
-      var props = (0, _objectAssign2['default'])({
-        origin: 'left top',
-        display: 'block'
-      }, this.props);
+      var _this = this;
+
+      var _props = this.props;
+      var toggled = _props.toggled;
+      var origin = _props.origin;
+      var display = _props.display;
+
+      origin = origin || 'left top';
+      display = display || 'block';
       return _react2['default'].createElement(
         _reactMotion2['default'],
         {
           endValue: {
             scale: {
-              val: props.toggled ? 1 : 0,
+              val: toggled ? 1 : 0,
               config: [200, 20]
             },
             opacity: {
-              val: props.toggled ? 1 : 0
+              val: toggled ? 1 : 0
             }
           }
         },
         function (interpolated) {
           var style = {
-            transformOrigin: props.origin || 'left top',
+            transformOrigin: origin || 'left top',
             transform: 'scale(' + interpolated.scale.val + ')',
             opacity: interpolated.opacity.val,
-            display: interpolated.opacity.val > 0 ? props.display : 'none'
+            display: interpolated.opacity.val > 0 ? display : 'none'
           };
-          return props.children(style);
+          return _this.props.children(style);
         }
       );
     }
@@ -56,45 +57,4 @@ var Toggle = {
 };
 exports.Toggle = Toggle;
 
-},{"object-assign":2,"react":"react","react-motion":"react-motion"}],2:[function(require,module,exports){
-'use strict';
-var propIsEnumerable = Object.prototype.propertyIsEnumerable;
-
-function ToObject(val) {
-	if (val == null) {
-		throw new TypeError('Object.assign cannot be called with null or undefined');
-	}
-
-	return Object(val);
-}
-
-function ownEnumerableKeys(obj) {
-	var keys = Object.getOwnPropertyNames(obj);
-
-	if (Object.getOwnPropertySymbols) {
-		keys = keys.concat(Object.getOwnPropertySymbols(obj));
-	}
-
-	return keys.filter(function (key) {
-		return propIsEnumerable.call(obj, key);
-	});
-}
-
-module.exports = Object.assign || function (target, source) {
-	var from;
-	var keys;
-	var to = ToObject(target);
-
-	for (var s = 1; s < arguments.length; s++) {
-		from = arguments[s];
-		keys = ownEnumerableKeys(Object(from));
-
-		for (var i = 0; i < keys.length; i++) {
-			to[keys[i]] = from[keys[i]];
-		}
-	}
-
-	return to;
-};
-
-},{}]},{},[1]);
+},{"react":"react","react-motion":"react-motion"}]},{},[1]);
