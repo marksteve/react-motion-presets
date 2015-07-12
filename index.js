@@ -26,23 +26,27 @@ var Toggle = {
     render: function render() {
       var props = (0, _objectAssign2['default'])({
         origin: 'left top',
-        display: 'block',
-        config: [200, 20]
+        display: 'block'
       }, this.props);
       return _react2['default'].createElement(
         _reactMotion2['default'],
         {
           endValue: {
-            val: props.toggled ? 1 : 0,
-            config: props.config
+            scale: {
+              val: props.toggled ? 1 : 0,
+              config: [200, 20]
+            },
+            opacity: {
+              val: props.toggled ? 1 : 0
+            }
           }
         },
         function (interpolated) {
           var style = {
             transformOrigin: props.origin || 'left top',
-            opacity: interpolated.val,
-            transform: 'scale(' + interpolated.val + ')',
-            display: interpolated.val > 0 ? props.display : 'none'
+            transform: 'scale(' + interpolated.scale.val + ')',
+            opacity: interpolated.opacity.val,
+            display: interpolated.opacity.val > 0 ? props.display : 'none'
           };
           return props.children(style);
         }
