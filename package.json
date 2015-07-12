@@ -21,8 +21,8 @@
     "uglify-js": "^2.4.23"
   },
   "peerDependencies": {
-    "react": "^0.13.3",
-    "react-motion": "0.0.3"
+    "react": "0.13.x",
+    "react-motion": "0.0.x"
   },
   "repository": {
     "type": "git",
